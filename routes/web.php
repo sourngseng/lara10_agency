@@ -16,11 +16,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    // return view('welcome');
-    return view('front_layouts.home');
-    // echo "Hello";
-});
+// Route::get('/', function () {
+//     // return view('welcome');
+//     return view('front_layouts.home');
+//     // echo "Hello";
+// });
 
 // Route::get('/contact',function(){
 //     $name="Long Dara";
@@ -30,7 +30,7 @@ Route::get('/', function () {
 //     return view('contact',compact('name','phone'));
 // });
 
-Route::get('/home',[FrontPageController::class,'index']);
+Route::get('/',[FrontPageController::class,'index']);
 Route::get('/about',[FrontPageController::class,'about']);
 Route::get('/contact',[FrontPageController::class,'contact']);
 
