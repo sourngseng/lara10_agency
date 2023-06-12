@@ -18,7 +18,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     // return view('welcome');
-    echo "Hello";
+    return view('front_layouts.home');
+    // echo "Hello";
 });
 
 // Route::get('/contact',function(){
