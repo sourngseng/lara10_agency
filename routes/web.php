@@ -1,8 +1,6 @@
 <?php
 
-use App\Http\Controllers\CustomerController;
-use App\Http\Controllers\FrontPageController;
-use App\Http\Controllers\TeacherController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,9 +28,7 @@ use Illuminate\Support\Facades\Route;
 //     return view('contact',compact('name','phone'));
 // });
 
-Route::get('/',[FrontPageController::class,'index']);
-Route::get('/about',[FrontPageController::class,'about']);
-Route::get('/contact',[FrontPageController::class,'contact']);
+
 
 
 
@@ -40,21 +36,26 @@ Route::get('/contact',[FrontPageController::class,'contact']);
 
 // Route::get('/customers',[CustomerController::class,'index']);
 
+
+
+
+
+
 // Route::group(['prefix'=>'admin','as'=>'admin.','middleware'=>['auth']],function(){
 
-    Route::controller(App\Http\Controllers\CustomerController::class)->group(function () {
-        Route::get('/customers','index')->name('customers.index');
-        Route::post('/customers/store','store')->name('customers.store');
-        Route::get('/customers/{id}/edit','edit')->name('customers.edit');
-        Route::get('/customers/{id}/show','show')->name('customers.show');
-        Route::post('/customers/{id}/delete','destroy')->name('customers.destroy');
-    });
+  Route::controller(CustomerController::class)->group(function () {
+    Route::get('/customers','index')->name('customers.index');
+    Route::post('/customers/store','store')->name('customers.store');
+    Route::get('/customers/{id}/edit','edit')->name('customers.edit');
+    Route::get('/customers/{id}/show','show')->name('customers.show');
+    Route::post('/customers/{id}/delete','destroy')->name('customers.destroy');
+});
 
-    Route::get('/teachers',[TeacherController::class,'index'])->name('teachers.index');
-    Route::post('/teachers/store',[TeacherController::class,'store'])->name('teachers.store');
-    Route::get('/teachers/{id}/edit',[TeacherController::class,'edit'])->name('teachers.edit');
-    Route::get('/teachers/{id}/show',[TeacherController::class,'show'])->name('teachers.show');
-    Route::post('/teachers/{id}/delete',[TeacherController::class,'destroy'])->name('teachers.destroy');
+Route::get('/teachers',[TeacherController::class,'index'])->name('teachers.index');
+Route::post('/teachers/store',[TeacherController::class,'store'])->name('teachers.store');
+Route::get('/teachers/{id}/edit',[TeacherController::class,'edit'])->name('teachers.edit');
+Route::get('/teachers/{id}/show',[TeacherController::class,'show'])->name('teachers.show');
+Route::post('/teachers/{id}/delete',[TeacherController::class,'destroy'])->name('teachers.destroy');
 
 
 // });
