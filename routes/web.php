@@ -14,11 +14,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     // return view('welcome');
-//     return view('front_layouts.home');
-//     // echo "Hello";
-// });
+Route::get('/auth-sample', function () {
+    // return view('welcome');
+    // return view('front_layouts.home');
+    // // echo "Hello";
+
+    return view('auth_sample');
+});
+
+Route::get('/sample-tables', function () {
+    return view('sample-tables.index');
+}
+);
 
 // Route::get('/contact',function(){
 //     $name="Long Dara";
