@@ -19,7 +19,8 @@ Route::get('/auth-sample', function () {
     // return view('front_layouts.home');
     // // echo "Hello";
 
-    return view('auth_sample');
+    return view('layouts.app_auth');
+    // return view('auth_sample');
 });
 
 Route::get('/sample-tables', function () {
