@@ -2,7 +2,8 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-
+use App\Http\Controllers\ServiceController;
+use App\Models\Service;
 
 Auth::routes();
 
@@ -24,7 +25,13 @@ All Admin Routes List
 Route::middleware(['auth', 'user-access:admin'])->group(function () {
 
     Route::get('/admin/home', [HomeController::class, 'adminHome'])->name('admin.home');
-});
+
+    //Manage Services
+    Route::get('/admin/services', [ServiceController::class, 'index'])->name('admin.services');
+    Route::get('/admin/services/create', [ServiceController::class, 'create'])->name('admin.services.create');
+
+
+  });
 
 /*------------------------------------------
 --------------------------------------------

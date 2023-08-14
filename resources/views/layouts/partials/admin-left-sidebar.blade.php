@@ -28,11 +28,11 @@
             ><span class="mtext">Manage Services</span>
           </a>
           <ul class="submenu">
-            <li><a href="form-basic.html">Create Service</a></li>
+            <li><a href="{{route('admin.services.create')}}">Create Service</a></li>
             <li>
-              <a href="advanced-components.html">All Services</a>
+              <a href="{{route('admin.services')}}">All Services</a>
             </li>
-            <li><a href="form-wizard.html">Deleted Services</a></li>
+            <li><a href="{{route('admin.services')}}">Deleted Services</a></li>
           </ul>
         </li>
         <li class="dropdown">
