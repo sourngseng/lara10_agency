@@ -11,6 +11,7 @@
   href="{{asset('backend')}}/src/plugins/sweetalert2/sweetalert2.css"
 />
   @endpush
+
 @section('content')
   @include('admin.services.list_services')
 @endsection

@@ -1,9 +1,10 @@
 <?php
+use App\Models\Service;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\TeamController;
 use App\Http\Controllers\ServiceController;
-use App\Models\Service;
 
 Auth::routes();
 
@@ -38,6 +39,17 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
       Route::get('/admin/services/{id}/show','show')->name('services.show');
       Route::post('/admin/services/{id}/delete','destroy')->name('services.destroy');
   });
+
+  //teams
+  Route::controller(TeamController::class)->group(function () {
+    Route::get('/admin/teams','index')->name('teams.index');
+    Route::post('/admin/teams/store','store')->name('teams.store');
+    Route::get('/admin/teams/create','create')->name('teams.create');
+    Route::get('/admin/teams/{id}/edit','edit')->name('teams.edit');
+    Route::get('/admin/teams/{id}/show','show')->name('teams.show');
+    Route::post('/admin/teams/{id}/delete','destroy')->name('teams.destroy');
+});
+
 
 
   });
