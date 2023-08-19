@@ -33,23 +33,19 @@
 		/>
 
 		<!-- Google Font -->
-		<link
-			href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-			rel="stylesheet"
-		/>
+		  <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Hanuman:wght@100;300;400;700;900&display=swap" rel="stylesheet">
 		<!-- CSS -->
-		<link rel="stylesheet" type="text/css" href="{{asset('backend')}}/vendors/styles/core.css" />
-		<link	rel="stylesheet"		type="text/css"
-    href="{{asset('backend')}}/vendors/styles/icon-font.min.css"/>
-		<link
-			rel="stylesheet" type="text/css"
-      href="{{asset('backend')}}/src/plugins/datatables/css/dataTables.bootstrap4.min.css"/>
-		<link
-			rel="stylesheet" type="text/css"
-      href="{{asset('backend')}}/src/plugins/datatables/css/responsive.bootstrap4.min.css"/>
-		<link rel="stylesheet" type="text/css" href="{{asset('backend')}}/vendors/styles/style.css" />
+    <link rel="stylesheet" type="text/css" href="{{asset('backend')}}/vendors/styles/core.css" />
+    <link  rel="stylesheet"  type="text/css"  href="{{asset('backend')}}/vendors/styles/icon-font.min.css"/>
+    <link  rel="stylesheet"  type="text/css" href="{{asset('backend')}}/src/plugins/datatables/css/dataTables.bootstrap4.min.css"/>
+    <link  rel="stylesheet"  type="text/css" href="{{asset('backend')}}/src/plugins/datatables/css/responsive.bootstrap4.min.css"/>
+    <link rel="stylesheet" type="text/css" href="{{asset('backend')}}/vendors/styles/style.css" />
+    @stack('datatable_css')
 
     @stack('styles')
+
 
 	</head>
 	<body>
@@ -67,7 +63,20 @@
       @yield('content')
 
 		</div>
-   @stack('scripts')
+    @stack('modals')
+
+    <!-- js -->
+    <script src="{{asset('backend')}}/vendors/scripts/core.js"></script>
+    <script src="{{asset('backend')}}/vendors/scripts/script.min.js"></script>
+    <script src="{{asset('backend')}}/vendors/scripts/process.js"></script>
+    <script src="{{asset('backend')}}/vendors/scripts/layout-settings.js"></script>
+    <script src="{{asset('backend')}}/src/plugins/apexcharts/apexcharts.min.js"></script>
+    <!-- add sweet alert js & css in footer -->
+    <script src="{{asset('backend')}}/src/plugins/sweetalert2/sweetalert2.all.js"></script>
+    <script src="{{asset('backend')}}/src/plugins/sweetalert2/sweet-alert.init.js"></script>
+
+    @stack('datatable_js')
+    @stack('scripts')
 
 	</body>
 </html>

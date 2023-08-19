@@ -1,6 +1,6 @@
 @extends('layouts.admin.admin-app')
 @push('title')
-  List All Services
+  Create Service
 @endpush
 
 @push('styles')
@@ -12,7 +12,59 @@
 <link rel="stylesheet" type="text/css" href="{{asset('backend')}}/vendors/styles/style.css" />
 @endpush
 @section('content')
-  <h1>Create Service</h1>
+
+<div class="pd-20 card-box mb-30">
+  <div class="clearfix">
+    <div class="pull-left">
+      <h4 class="text-blue h4">Create Service</h4>
+    </div>
+
+  </div>
+  <form>
+    <div class="form-group row">
+      <label class="col-sm-12 col-md-2 col-form-label">Service Title</label>
+      <div class="col-sm-12 col-md-10">
+        <input class="form-control" id="title" name="title" type="text" placeholder="Service Title">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-12 col-md-2 col-form-label">Description</label>
+      <div class="col-sm-12 col-md-10">
+        <textarea class="form-control" id="description" name="description" ></textarea>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Image</label>
+      <div class="custom-file">
+        <input type="file" class="custom-file-input" id="customFile" name="image" >
+        <label class="custom-file-label">Choose file</label>
+      </div>
+    </div>
+
+
+    <div class="custom-control custom-checkbox mb-5">
+      <input type="checkbox" class="custom-control-input" id="ck_status" name="status">
+      <label class="custom-control-label" for="ck_status">Is Active</label>
+    </div>
+
+    <div class="pd-20">
+      <div class="clearfix">
+        <div class="pull-right">
+          <a class="btn btn-secondary" href="{{route('admin.services')}}">Cancel</a>
+
+          <button type="button" class="btn btn-primary" id="save_data">
+                Save changes
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </form>
+
+  </div>
+</div>
+
 @endsection
 
 
