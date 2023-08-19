@@ -1,7 +1,7 @@
 <div class="modal" id="crudObjectModal">
   <div class="modal-dialog modal-xl">
       <!-- The Modal -->
-      <form action="{{route('services.store')}}" method="POST" id="frmCrudObject" enctype="multipart/form-data">
+      <form action="{{route('abouts.store')}}" method="POST" id="frmCrudObject" enctype="multipart/form-data">
         @csrf
         <div class="modal-content">
             <!-- Modal Header -->

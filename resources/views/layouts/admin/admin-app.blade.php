@@ -60,6 +60,7 @@
 
 		<div class="mobile-menu-overlay"></div>
 		<div class="main-container">
+      
       @yield('content')
 
 		</div>
