@@ -16,7 +16,7 @@ use App\Http\Controllers\CustomerController;
 |
 */
 
-Route::get('/testing-hello', function () {
+Route::get('/testing-vanda', function () {
     return view('welcome');
   }
 );
