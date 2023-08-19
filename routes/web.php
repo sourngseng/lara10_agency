@@ -16,6 +16,11 @@ use App\Http\Controllers\CustomerController;
 |
 */
 
+Route::get('/testing-hello', function () {
+    return view('welcome');
+  }
+);
+
 Route::get('/auth-sample', function () {
     // return view('welcome');
     // return view('front_layouts.home');
