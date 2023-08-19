@@ -1,9 +1,10 @@
 <?php
+use App\Models\Service;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ServiceController;
-use App\Models\Service;
 
 Auth::routes();
 
@@ -39,8 +40,18 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
       Route::post('/admin/services/{id}/delete','destroy')->name('services.destroy');
   });
 
+  // About
+    Route::controller(AboutController::class)->group(function () {
+      Route::get('/admin/abouts','index')->name('abouts.index');
+      Route::post('/admin/abouts/store','store')->name('abouts.store');
+      Route::get('/admin/abouts/create','create')->name('abouts.create');
+      Route::get('/admin/abouts/{id}/edit','edit')->name('abouts.edit');
+      Route::get('/admin/abouts/{id}/show','show')->name('abouts.show');
+      Route::post('/admin/abouts/{id}/delete','destroy')->name('abouts.destroy');
+    });
 
-  });
+
+});
 
 /*------------------------------------------
 --------------------------------------------
