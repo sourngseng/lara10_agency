@@ -5,7 +5,7 @@
 @push('styles')
   <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.10/dist/sweetalert2.min.css " rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
-  <link rel="stylesheet"  type="text/css"  href="{{asset('backend')}}/src/plugins/sweetalert2/sweetalert2.css"/>
+  {{-- <link rel="stylesheet"  type="text/css"  href="{{asset('backend')}}/src/plugins/sweetalert2/sweetalert2.css"/> --}}
 @endpush
 
 
@@ -34,11 +34,20 @@
   <script src="{{asset('backend')}}/src/plugins/datatables/js/vfs_fonts.js"></script>
   <!-- Datatable Setting js -->
   <script src="{{asset('backend')}}/vendors/scripts/datatable-setting.js"></script>
+
+   <!-- add sweet alert js & css in footer -->
+   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.27/dist/sweetalert2.all.min.js"></script>
+   {{-- <script src="{{asset('backend')}}/src/plugins/sweetalert2/sweet-alert.init.js"></script> --}}
 @endpush
 
 @push('scripts')
   <script>
     $(document).ready(function () {
+      $.ajaxSetup({
+        headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+      });
       //save or update
       $('#frmCrudObject').on('submit',function(e){
         e.preventDefault();
@@ -66,7 +75,8 @@
             } else {
               var $html =res.html;
               if(res.type == 'store-object'){
-                $('tbody#objectList').append($html);
+                // $('tbody#objectList').append($html);
+                $('tbody#objectList').prepend($html);
               }else{
                 $("#tr_object_id_" + res.data.id).replaceWith($html);
                 $('#crudObjectModal').find('#object_id').val('');
@@ -103,6 +113,7 @@
           } else {
             form.find('#preview').attr('src',"{{ asset('uploads/') }}"+'/'+res.data.image);
           }
+          
           if(res.data.status==1){
             form.find('#ck_status').prop('checked',true);
           } else {
@@ -111,19 +122,20 @@
           modal.modal('show');
         })
       });
+
       //delete
+
       $('body').on('click', '.objectDelete', function (e) {
         e.preventDefault();
         var object_id = $(this).data("id");
         var link = $(this).attr("href");
-        // alert("Are you sure?");
         Swal.fire({
           title: 'Are you sure?',
           text: "You won't be able to revert this!",
           icon: 'warning',
           showCancelButton: true,
           confirmButtonColor: '#3085d6',
-          cancelButtonColor: '#d33898',
+          cancelButtonColor: '#d33',
           confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
           if (result.value) {
@@ -142,6 +154,8 @@
           }
         })
       });
+
+
     });
   </script>
 

@@ -119,13 +119,20 @@ class ServiceController extends Controller
   public function destroy($id)
   {
     $service = Service::findOrFail($id);
+    // dd($service);
+    // $service->delete();
+    // return redirect()->route('admin.services.index')
+    //                     ->with('success','Service deleted successfully');
     $deleteImage = public_path('uploads/'.$service->image);
     if($service->delete()){
       if(\file_exists($deleteImage)){
         unlink($deleteImage);
       }
     }
+    // $service->delete();
     return response()->json(['success'=>'Service has been deleted successfully!']);
+
+
   }
 
 }

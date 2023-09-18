@@ -29,6 +29,6 @@
   <td>{{$row->created_at}}</td>
   {{-- <td>{{$row->profile}}</td> --}}
   <td>
-    @include('global.actionButton')
+    @include('admin.services.template.actionButton')
   </td>
 </tr>

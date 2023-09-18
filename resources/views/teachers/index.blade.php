@@ -36,6 +36,8 @@
 @endpush
 
 @push('script')
+
+
   <script>
     $(document).ready(function () {
       //save or update
@@ -115,34 +117,59 @@
         })
       });
       //delete
+      // $('body').on('click', '.objectDelete', function (e) {
+      //   e.preventDefault();
+      //   var object_id = $(this).data("id");
+      //   var link = $(this).attr("href");
+      //   Swal.fire({
+      //     title: 'Are you sure?',
+      //     text: "You won't be able to revert this!",
+      //     icon: 'warning',
+      //     showCancelButton: true,
+      //     confirmButtonColor: '#3085d6',
+      //     cancelButtonColor: '#d33',
+      //     confirmButtonText: 'Yes, delete it!'
+      //   }).then((result) => {
+      //     if (result.value) {
+      //       $.ajax({
+      //         type: "post",
+      //         url:link,
+      //         success: function (res) {
+      //           console.log(res)
+      //           $("#tr_object_id_" + object_id).remove();
+      //           toastr.success(res.success);
+      //         },
+      //         error: function (data) {
+      //           console.log('Error:', data);
+      //         }
+      //       });
+      //     }
+      //   })
+      // });
+
+
+
+
+
+      // Test Delete
+
       $('body').on('click', '.objectDelete', function (e) {
         e.preventDefault();
-        var object_id = $(this).data("id");
-        var link = $(this).attr("href");
-        Swal.fire({
-          title: 'Are you sure?',
-          text: "You won't be able to revert this!",
-          icon: 'warning',
-          showCancelButton: true,
-          confirmButtonColor: '#3085d6',
-          cancelButtonColor: '#d33',
-          confirmButtonText: 'Yes, delete it!'
-        }).then((result) => {
-          if (result.value) {
-            $.ajax({
-              type: "post",
-              url:link,
-              success: function (res) {
-                console.log(res)
-                $("#tr_object_id_" + object_id).remove();
-                toastr.success(res.success);
-              },
-              error: function (data) {
-                console.log('Error:', data);
+          Swal.fire({
+              title: "Are you sure?",
+              text: "You won"t be able to revert this!",
+              icon: "warning",
+              showCancelButton: true,
+              confirmButtonText: "Yes, delete it!"
+          }).then(function(result) {
+              if (result.value) {
+                  Swal.fire(
+                      "Deleted!",
+                      "Your file has been deleted.",
+                      "success"
+                  )
               }
-            });
-          }
-        })
+          });
       });
     });
   </script>

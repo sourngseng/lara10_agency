@@ -2,6 +2,7 @@
 <html>
 	<head>
 		<!-- Basic Page Info -->
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
 		<meta charset="utf-8" />
 		<title>
       @stack('title', 'Admin Title')
@@ -60,11 +61,12 @@
 
 		<div class="mobile-menu-overlay"></div>
 		<div class="main-container">
-      
+
       @yield('content')
 
 		</div>
     @stack('modals')
+
 
     <!-- js -->
     <script src="{{asset('backend')}}/vendors/scripts/core.js"></script>
@@ -72,9 +74,7 @@
     <script src="{{asset('backend')}}/vendors/scripts/process.js"></script>
     <script src="{{asset('backend')}}/vendors/scripts/layout-settings.js"></script>
     <script src="{{asset('backend')}}/src/plugins/apexcharts/apexcharts.min.js"></script>
-    <!-- add sweet alert js & css in footer -->
-    <script src="{{asset('backend')}}/src/plugins/sweetalert2/sweetalert2.all.js"></script>
-    <script src="{{asset('backend')}}/src/plugins/sweetalert2/sweet-alert.init.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 
     @stack('datatable_js')
     @stack('scripts')

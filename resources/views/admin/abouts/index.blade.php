@@ -4,7 +4,7 @@
 @endpush
 
 @push('styles')
-  <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.10/dist/sweetalert2.min.css " rel="stylesheet">
+  {{-- <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.10/dist/sweetalert2.min.css " rel="stylesheet"> --}}
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
   <link rel="stylesheet"  type="text/css"  href="{{asset('backend')}}/src/plugins/sweetalert2/sweetalert2.css"/>
 @endpush

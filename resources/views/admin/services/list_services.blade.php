@@ -66,7 +66,7 @@
             </td>
             <td>{{$row->created_at}}</td>
             <td>
-              @include('global.actionButton')
+              @include('admin.services.template.actionButton')
             </td>
 
           </tr>
