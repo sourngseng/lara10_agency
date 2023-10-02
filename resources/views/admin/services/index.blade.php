@@ -33,11 +33,19 @@
   <script src="{{asset('backend')}}/src/plugins/datatables/js/vfs_fonts.js"></script>
   <!-- Datatable Setting js -->
   <script src="{{asset('backend')}}/vendors/scripts/datatable-setting.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 @endpush
 
 @push('scripts')
   <script>
     $(document).ready(function () {
+        $.ajaxSetup({
+          headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          }
+        });
+
       //save or update
       $('#frmCrudObject').on('submit',function(e){
         e.preventDefault();
@@ -128,6 +136,7 @@
           if (result.value) {
             $.ajax({
               type: "post",
+              // "headers": {'X-CSRF-TOKEN': $('meta[name="csrf_token"]').attr('content')},
               url:link,
               success: function (res) {
                 console.log(res)

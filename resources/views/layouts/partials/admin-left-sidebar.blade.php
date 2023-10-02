@@ -34,8 +34,7 @@
             </li>
             <li><a href="{{route('services.index')}}">Deleted Services</a></li>
           </ul>
-        </li>
-       
+        </li>       
         <li>
           <a href="{{route('abouts.index')}}" class="dropdown-toggle no-arrow">
             <span class="micon bi bi-info"></span

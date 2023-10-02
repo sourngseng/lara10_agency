@@ -14,6 +14,9 @@
   @include('admin.abouts.list_about')
 @endsection
 
+@push('modals')
+    @include('admin.abouts.modal.create') 
+@endpush
 
 @push('datatable_js')
   <script src="{{asset('backend')}}/src/plugins/datatables/js/jquery.dataTables.min.js"></script>

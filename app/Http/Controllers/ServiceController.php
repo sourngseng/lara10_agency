@@ -54,8 +54,9 @@ class ServiceController extends Controller
       }
       if($request->hasFile('profile')){
         $image = $request->file('profile');
-        $image_name = Str::slug($request->fname).'-'. uniqid().'.'. $image->getClientOriginalExtension();
-        $image->move(public_path('uploads/services/'),$image_name);
+        $image_name = Str::slug($request->title).'-'. uniqid().'.'. $image->getClientOriginalExtension();
+        $image_name="services/".$image_name;
+        $image->move(public_path('uploads/'),$image_name);
       } else {
         if($request->old_image){
           $image_name = $request->old_image;
@@ -67,7 +68,7 @@ class ServiceController extends Controller
         'title'=>$request->title,
         'description'=>$request->description,
         'status'=>$status,
-        'image'=>"services/".$image_name,
+        'image'=>$image_name,
       ];
       // return response()->json($all_data);
         $datas   =   Service::updateOrCreate([
@@ -118,14 +119,26 @@ class ServiceController extends Controller
 
   public function destroy($id)
   {
-    $service = Service::findOrFail($id);
-    $deleteImage = public_path('uploads/'.$service->image);
-    if($service->delete()){
+   
+   
+    $datas = Service::find($id);
+    // dd($datas);
+    // $datas->delete();
+
+    $deleteImage = public_path('uploads/'.$datas->image);
+    if($datas->delete()){
       if(\file_exists($deleteImage)){
         unlink($deleteImage);
       }
     }
+
+    $response = [
+      'success' => "Service has been deleted successfully!",
+      'data' => $datas,
+    ];
     return response()->json(['success'=>'Service has been deleted successfully!']);
+
+
   }
 
 }
