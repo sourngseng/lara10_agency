@@ -28,27 +28,18 @@
             ><span class="mtext">Manage Services</span>
           </a>
           <ul class="submenu">
-            <li><a href="{{route('services.create')}}">Create Service</a></li>
+            {{-- <li><a href="{{route('services.create')}}">Create Service</a></li> --}}
             <li>
               <a href="{{route('services.index')}}">All Services</a>
             </li>
             <li><a href="{{route('services.index')}}">Deleted Services</a></li>
           </ul>
         </li>
-        <li class="dropdown">
-          <a href="javascript:;" class="dropdown-toggle">
-            <span class="micon bi bi-table"></span
-            ><span class="mtext">Tables</span>
-          </a>
-          <ul class="submenu">
-            <li><a href="basic-table.html">Basic Tables</a></li>
-            <li><a href="datatable.html">DataTables</a></li>
-          </ul>
-        </li>
+       
         <li>
-          <a href="calendar.html" class="dropdown-toggle no-arrow">
-            <span class="micon bi bi-calendar4-week"></span
-            ><span class="mtext">Calendar</span>
+          <a href="{{route('abouts.index')}}" class="dropdown-toggle no-arrow">
+            <span class="micon bi bi-info"></span
+            ><span class="mtext">About</span>
           </a>
         </li>
 
