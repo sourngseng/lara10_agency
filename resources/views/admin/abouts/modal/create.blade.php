@@ -24,10 +24,18 @@
             <div class="modal-body">
               <input type="hidden" name="object_id" id="object_id">
               <input type="hidden" name="crudRoutePath" id="crudRoutePath" value="{{ $crudRoutePath }}">
+                <div class="row">
+                  <div class="col-md-8">
                     <div class="mb-3 mt-3">
-                        <label for="title" class="form-label">Service Title:</label>
-                        <input type="text" class="form-control" id="title" placeholder="Enter Service Title" name="title">
-                        <span class="text-danger error-text title_error"></span>
+                      <label for="name_date" class="form-label">About Title:</label>
+                      <input type="text" class="form-control" id="name_date" placeholder="Enter About date" name="name_date">
+                      <span class="text-danger error-text name_date_error"></span>
+                    </div>
+
+                    <div class="mb-3 mt-3">
+                      <label for="title" class="form-label">About Title:</label>
+                      <input type="text" class="form-control" id="title" placeholder="Enter Service Title" name="title">
+                      <span class="text-danger error-text title_error"></span>
                     </div>
                     <div class="mb-3 mt-3">
                         <label for="description" class="form-label">Description:</label>
@@ -40,6 +48,8 @@
                       <label class="custom-control-label" for="ck_status">Is Active</label>
                     </div>
 
+                  </div>
+                  <div class="col-md-4">
                     <div class="form-group text-center mb-3">
                       <div class="img-box mb-2">
                         <input type="hidden" name="old_image" id="old_image">
@@ -52,6 +62,9 @@
                       </div>
                       <span class="text-danger error-text profile_error"></span>
                     </div>
+                  </div>
+                </div>               
+                   
             </div>
             <!-- Modal footer -->
             <div class="modal-footer">
