@@ -42,6 +42,13 @@
           </a>
         </li>
 
+        <li>
+          <a href="{{route('teams.index')}}" class="dropdown-toggle no-arrow">
+            <span class="micon bi bi-user"></span
+            ><span class="mtext">Teams</span>
+          </a>
+        </li>
+
       </ul>
     </div>
   </div>

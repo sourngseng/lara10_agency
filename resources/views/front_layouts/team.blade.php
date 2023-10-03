@@ -12,8 +12,8 @@
                   <img class="mx-auto rounded-circle" src="{{asset('uploads')}}/{{$item->image}}" alt="{{$item->image}}" />
                   <h4>{{$item->name}}</h4>
                   <p class="text-muted">{{$item->position}}</p>
-                  <a class="btn btn-dark btn-social mx-2" href="{{$item->facebook}}" aria-label="{{$item->name}} Twitter Profile"><i class="fab fa-twitter"></i></a>
-                  <a class="btn btn-dark btn-social mx-2" href="{{$item->twitter}}" aria-label="{{$item->name}} Facebook Profile"><i class="fab fa-facebook-f"></i></a>
+                  <a class="btn btn-dark btn-social mx-2" href="{{$item->twitter}}" aria-label="{{$item->name}} Twitter Profile"><i class="fab fa-twitter"></i></a>
+                  <a class="btn btn-dark btn-social mx-2" href="{{$item->facebook}}" aria-label="{{$item->name}} Facebook Profile"><i class="fab fa-facebook-f"></i></a>
                   <a class="btn btn-dark btn-social mx-2" href="{{$item->linkedin}}" aria-label="{{$item->name}} LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
               </div>
           </div>

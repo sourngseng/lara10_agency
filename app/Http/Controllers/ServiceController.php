@@ -28,9 +28,6 @@ class ServiceController extends Controller
   public function create(){
     return view('admin.services.create');
   }
-
-
-
   public function store(Request $request)
   {
     // return response()->json($request);

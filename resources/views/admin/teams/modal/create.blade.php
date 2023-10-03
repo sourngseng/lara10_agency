@@ -1,7 +1,7 @@
 <div class="modal" id="crudObjectModal">
   <div class="modal-dialog modal-xl">
       <!-- The Modal -->
-      <form action="{{route('teams.store')}}" method="POST" id="frmCrudObject" enctype="multipart/form-data">
+      <form action="{{route('abouts.store')}}" method="POST" id="frmCrudObject" enctype="multipart/form-data">
         @csrf
         <div class="modal-content">
             <!-- Modal Header -->
@@ -27,32 +27,20 @@
                 <div class="row">
                   <div class="col-md-8">
                     <div class="mb-3 mt-3">
-                      <label for="name" class="form-label">Team Name:</label>
-                      <input type="text" class="form-control" id="name" placeholder="SENG Sourng" name="name">
-                      <span class="text-danger error-text name_error"></span>
+                      <label for="name_date" class="form-label">About Title:</label>
+                      <input type="text" class="form-control" id="name_date" placeholder="Enter About date" name="name_date">
+                      <span class="text-danger error-text name_date_error"></span>
                     </div>
 
                     <div class="mb-3 mt-3">
-                      <label for="position" class="form-label">About position:</label>
-                      <input type="text" class="form-control" id="position" placeholder="Manager" name="position">
-                      <span class="text-danger error-text position_error"></span>
+                      <label for="title" class="form-label">About Title:</label>
+                      <input type="text" class="form-control" id="title" placeholder="Enter Service Title" name="title">
+                      <span class="text-danger error-text title_error"></span>
                     </div>
                     <div class="mb-3 mt-3">
-                        <label for="facebook" class="form-label">facebook:</label>
-                        <input type="text" class="form-control" id="facebook" placeholder="Enter facebook" name="facebook">
-                        <span class="text-danger error-text facebook_error"></span>
-                    </div>
-
-                    <div class="mb-3 mt-3">
-                      <label for="twitter" class="form-label">twitter:</label>
-                      <input type="text" class="form-control" id="twitter" placeholder="Enter twitter" name="twitter">
-                      <span class="text-danger error-text twitter_error"></span>
-                    </div>
-
-                    <div class="mb-3 mt-3">
-                      <label for="linkedin" class="form-label">linkedin:</label>
-                      <input type="text" class="form-control" id="linkedin" placeholder="Enter linkedin" name="linkedin">
-                      <span class="text-danger error-text linkedin_error"></span>
+                        <label for="description" class="form-label">Description:</label>
+                        <input type="text" class="form-control" id="description" placeholder="Enter Description" name="description">
+                        <span class="text-danger error-text description_error"></span>
                     </div>
 
                     <div class="custom-control custom-checkbox mb-5">
