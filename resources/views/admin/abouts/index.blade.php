@@ -104,7 +104,8 @@
         modal.find('.modal-title').html('Edit Service');
         $.get( actionUrl +'/' +object_id+'/edit', function (res) {
           console.log()
-          form.find('#object_id').val(res.data.id);
+          form.find('#object_id').val(res.data.id);          
+          form.find('#name_date').val(res.data.name_date);
           form.find('#title').val(res.data.title);
           form.find('#description').val(res.data.description);
           // form.find('#email').val(res.data.email);

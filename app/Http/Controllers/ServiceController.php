@@ -55,11 +55,13 @@ class ServiceController extends Controller
       if($request->hasFile('profile')){
         $image = $request->file('profile');
         $image_name = Str::slug($request->title).'-'. uniqid().'.'. $image->getClientOriginalExtension();
-        $image_name="services/".$image_name;
-        $image->move(public_path('uploads/'),$image_name);
+        // $image_name="services/".$image_name;
+        $image->move(public_path('uploads/services'),$image_name);
       } else {
         if($request->old_image){
-          $image_name = $request->old_image;
+          // $image_name = $request->old_image;
+          $old_images=explode("/",$request->old_image);
+          $image_name =$old_images[1];// $request->old_image;
         } else {
           $image_name = null;
         }
@@ -68,7 +70,7 @@ class ServiceController extends Controller
         'title'=>$request->title,
         'description'=>$request->description,
         'status'=>$status,
-        'image'=>$image_name,
+        'image'=>"services/".$image_name,
       ];
       // return response()->json($all_data);
         $datas   =   Service::updateOrCreate([
